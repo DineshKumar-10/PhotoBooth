@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <div class="logo">Magizh Magic Touch</div>
+
+  <div class="menu-icon" (click)="toggleMenu()">☰</div>
+
+  <ul class="nav-links" [class.open]="menuOpen">
+    <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+    <li><a routerLink="/about" (click)="closeMenu()">About</a></li>
+    <li><a routerLink="/services" (click)="closeMenu()">Services</a></li>
+    <li><a routerLink="/gallery" (click)="closeMenu()">Gallery</a></li>
+    <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+  </ul>
+</nav>
