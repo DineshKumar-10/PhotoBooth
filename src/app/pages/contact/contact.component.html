@@ -1,15 +1,4 @@
-<!-- <form (ngSubmit)="submit()">
-  <input type="text" placeholder="Name" [(ngModel)]="form.name" name="name" required>
-  <input type="tel" placeholder="Phone" [(ngModel)]="form.phone" name="phone" required>
-  <input type="email" placeholder="Email" [(ngModel)]="form.email" name="email">
-  <textarea placeholder="Message" [(ngModel)]="form.message" name="message"></textarea>
-  <button type="submit">Send</button>
-</form>
-<p *ngIf="success">Message sent successfully ✅</p> -->
-
-
-
-<form #contactForm="ngForm" (ngSubmit)="submit(contactForm)">
+<!-- <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)">
   <input
     type="text"
     placeholder="Name"
@@ -30,31 +19,207 @@
     name="email"
     ngModel>
 
-  <textarea
-    placeholder="Message"
-    name="message"
-    ngModel>
-  </textarea>
-
-  <input
+    
+    <input
     type="city"
     placeholder="City"
     name="city"
     ngModel>
-
+    
     <input
     type="state"
     placeholder="state"
     name="state"
     ngModel>
-
+    
     <input
     type="number"
     placeholder="Pincode"
     name="pincode"
     ngModel>
-
+    
+    <textarea
+      placeholder="Message"
+      name="message"
+      ngModel>
+    </textarea>
   <button type="submit">Send</button>
 </form>
 
-<p *ngIf="success">Message sent successfully ✅</p>
+<p *ngIf="success">Message sent successfully ✅</p> -->
+
+<div class="contact-wrapper">
+  <h2>Contact Us</h2>
+  <p class="subtitle">We’d love to hear from you</p>
+
+  <form #contactForm="ngForm" (ngSubmit)="submit(contactForm)">
+    <!-- Name -->
+
+    <div class="form-group">
+      <input
+        type="text"
+        name="name"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Full Name"
+      />
+      <small
+        *ngIf="contactForm.submitted && contactForm.controls['name']?.invalid"
+      >
+        Name is required (min 3 letters)
+      </small>
+      <label>Name *</label>
+    </div>
+
+    <!-- Phone -->
+
+    <div class="form-group">
+      <input
+        type="tel"
+        name="phone"
+        ngModel
+        required
+        pattern="[6-9]{1}[0-9]{9}"
+        placeholder="Mobile Number"
+      />
+      <small
+        *ngIf="contactForm.submitted && contactForm.controls['phone']?.invalid"
+      >
+        Enter valid 10-digit mobile number
+      </small>
+      <label>Phone *</label>
+    </div>
+
+    <!-- Mail -->
+
+    <div class="form-group">
+      <input
+        type="email"
+        name="email"
+        ngModel
+        required=""
+        pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+        placeholder="Email Address"
+      />
+      <small
+        *ngIf="
+  contactForm.submitted &&
+  contactForm.controls['email']?.errors?.['pattern']
+"
+      >
+        Please enter a Gmail address (@gmail.com)
+      </small>
+      <label>Email</label>
+    </div>
+
+    <!-- Event Type -->
+
+    <select name="eventdate" ngModel required>
+      <option value="">Select Booking</option>
+      <option value="Birthday Event">Birthday Event</option>
+      <option value="Engagement">Engagement</option>
+      <option value="Wedding Event">Wedding Event</option>
+      <option value="Corporate Event">Corporate Event</option>
+      <option value="Baby Shower">Baby Shower</option>
+      <option value="Anniversary">Anniversary</option>
+      <option value="Other (specify)">Other (specify)</option>
+    </select>
+    <small
+      *ngIf="
+        contactForm.submitted && contactForm.controls['eventType']?.invalid
+      "
+    >
+      Event type required
+    </small>
+
+    <!-- Date -->
+
+    <div class="form-group">
+      <input type="date" name="date" ngModel required="" />
+      <small
+        *ngIf="
+          contactForm.submitted && contactForm.controls['eventDate']?.invalid
+        "
+      >
+        Date is required
+      </small>
+      <label>Date</label>
+    </div>
+
+    <!-- Time -->
+
+    <div class="form-group">
+      <input type="time" name="time" ngModel required="" />
+      <label>Time</label>
+    </div>
+
+    <!-- <div class="form-group">
+      <input type="text" name="city" ngModel required="kanchipuram ,vellor"
+       placeholder="City"/>
+      <small *ngIf="contactForm.submitted && contactForm.controls['city']?.invalid">
+    City is required
+  </small>
+      <label>City</label>
+    </div> -->
+
+    <!-- City -->
+    <select name="city" ngModel required>
+      <option value="">Select City</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Vellore">Vellore</option>
+      <option value="Kanchipuram">Kanchipuram</option>
+      <option value="Ranipet">Ranipet</option>
+      <option value="Tiruvannamalai">Tiruvannamalai</option>
+    </select>
+
+    <small
+      *ngIf="contactForm.submitted && contactForm.controls['city']?.invalid"
+    >
+      Please select a valid city
+    </small>
+
+    <!-- State -->
+
+   <select name="state" ngModel required >
+  <option value="">Select State</option>
+  <option value="Tamil Nadu">Tamil Nadu</option>
+</select>
+
+
+    <!-- Pincode -->
+
+    <div class="form-group">
+      <input
+        type="number"
+        name="pincode"
+        ngModel
+        name="pincode"
+        ngModel
+        required
+        pattern="[0-9]{6}"
+        placeholder="Pincode"
+      />
+      <small
+        *ngIf="
+          contactForm.submitted && contactForm.controls['pincode']?.invalid
+        "
+      >
+        Enter valid 6-digit pincode
+      </small>
+      <label>Pincode</label>
+    </div>
+
+    <!-- Message -->
+
+    <div class="form-group">
+      <input type="text" ngModel required="" placeholder="Message" />
+      <label>Message</label>
+    </div>
+    <button type="submit" [disabled]="contactForm.invalid">Send Message</button>
+  </form>
+
+  <p class="success" *ngIf="success">
+    <!-- ✅ Message sent successfully -->
+  </p>
+</div>
