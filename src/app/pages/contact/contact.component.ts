@@ -14,7 +14,8 @@ export class ContactComponent {
     name: '',
     phone: '',
     email: '',
-    message: ''
+    message: '',
+    city:''
   };
 
   constructor(private contactService: ContactService) {}
