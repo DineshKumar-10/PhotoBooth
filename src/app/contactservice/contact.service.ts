@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class ContactService {
 
-  private apiUrl = 'https://script.google.com/macros/s/AKfycbwYmknVSeHp4W4T-NFzTkEpI1ol4Is3wVSuYghc09rulglkuUdLtJHNArTfwTuHQstV/exec';
+  private apiUrl = 'https://script.google.com/macros/s/AKfycbxYD8fOrDOmeW03OvDzL52JjPWkjs2v4jylWj9rbgrbbtwubM7Faz4t_T_cfaSJko2hAQ/exec';
 
   
   constructor(private http: HttpClient) {}
@@ -22,6 +22,8 @@ sendData(data: any) {
   body.set('state', data.state);
   body.set('pincode', data.pincode);
   body.set('message', data.message);
+
+
 
 
  
