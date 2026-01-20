@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
 export class ContactService {
 
-  private apiUrl = 'https://script.google.com/macros/s/AKfycbwOKj5-ygM-rp_Pst73UgvTUDv6I2J5XFKCKo6BwSouiWF499TPTLqvPMWCoS2rOKtULA/exec';
+  private apiUrl = 'https://script.google.com/macros/s/AKfycbwYmknVSeHp4W4T-NFzTkEpI1ol4Is3wVSuYghc09rulglkuUdLtJHNArTfwTuHQstV/exec';
 
   
   constructor(private http: HttpClient) {}

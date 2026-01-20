@@ -25,37 +25,7 @@ export class ContactComponent {
 
   constructor(private contactService: ContactService) {}
 
-  
-  // submit(form: NgForm) {
-    
-
-  //   if (form.invalid) {
-  //     alert('Please fill all required fields');
-  //     return;
-  //   }
-
-  //   const body = new URLSearchParams();
-
-  //   Object.keys(form.value).forEach((key) => {
-  //     body.append(key, form.value[key]);
-  //   });
-
-  //   fetch(
-  //     'https://script.google.com/macros/s/AKfycby-jv-bGA-7bdDr5ocF8P7trvpiqPOxDQbTio4qxzi6E9_DdqjDrerSS4Gouao-Sc-jaA/exec',
-  //     {
-  //       method: 'POST',
-  //       body,
-  //     }
-  //   )
-  //     .then(() => (this.success = true))
-  //     .catch(() => alert('Submission failed'));
-  //   form.reset();
-  //   alert('Message sent successfully!');
-  // }
-
-
-
-  submit(form: NgForm) {
+ submit(form: NgForm) {
   if (form.invalid) {
     alert('Please fill all required fields');
     return;
@@ -72,5 +42,8 @@ export class ContactComponent {
     }
   });
 }
+
+  
+
 
 }
