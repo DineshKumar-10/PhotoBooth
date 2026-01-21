@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
     <main class="page-content">
       <router-outlet></router-outlet>
     </main>
+    <app-footer></app-footer>
   `,
   styles: [`
     .page-content {

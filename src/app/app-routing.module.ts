@@ -5,6 +5,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { PhotoBoothComponent } from './photo-booth/photo-booth.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
     { path: 'services', component: ServicesComponent },
     { path: 'gallery', component: GalleryComponent },
     { path: 'contact', component: ContactComponent },
+    { path: 'photo-booth', component: PhotoBoothComponent },
     { path: '**', redirectTo: '' } // fallback
 
 ];

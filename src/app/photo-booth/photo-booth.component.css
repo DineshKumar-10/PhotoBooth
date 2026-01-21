@@ -1,0 +1,25 @@
+.booth {
+  text-align: center;
+  padding: 20px;
+}
+
+video, img {
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.3);
+}
+
+select {
+  margin: 10px;
+  padding: 6px;
+}
+
+.buttons button {
+  margin: 5px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: none;
+  background: #ff5f6d;
+  color: white;
+  cursor: pointer;
+}
