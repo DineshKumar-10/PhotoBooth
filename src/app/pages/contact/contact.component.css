@@ -33,6 +33,11 @@ h2 {
   position: fixed;
   margin-bottom: 24px;
 }
+video, img {
+  object-fit: cover;
+  border-radius: 12px;
+}
+
 
 /* 🖊 INPUTS */
 input,

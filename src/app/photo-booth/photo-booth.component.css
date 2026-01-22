@@ -1,25 +1,46 @@
-.booth {
+.photo-booth-container {
   text-align: center;
   padding: 20px;
 }
 
 video, img {
-  width: 320px;
+  width: 400px;
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,.3);
+  box-shadow: 0 0 20px rgba(0,0,0,.4);
 }
 
-select {
-  margin: 10px;
-  padding: 6px;
-}
-
-.buttons button {
-  margin: 5px;
-  padding: 10px 16px;
+button, select {
+  margin: 8px;
+  padding: 8px 14px;
   border-radius: 20px;
   border: none;
   background: #ff5f6d;
   color: white;
   cursor: pointer;
+}
+
+select {
+  background: #333;
+}
+
+button:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.flash {
+  position: fixed;
+  inset: 0;
+  background: white;
+  opacity: 0.9;
+  z-index: 999;
+}
+
+.countdown {
+  font-size: 64px;
+  font-weight: bold;
+}
+
+.mirror {
+  transform: scaleX(-1);
 }

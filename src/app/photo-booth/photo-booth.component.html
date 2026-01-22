@@ -1,127 +1,60 @@
-<!-- <div class="booth">
+<div class="photo-booth-container">
 
-  <video #video autoplay [style.filter]="getFilter()"></video>
+  <div class="flash" *ngIf="flash"></div>
+
+  <video
+    #video
+    autoplay
+    playsinline
+    [class.mirror]="cameraFacing === 'user'"
+    [style.filter]="getFilter()">
+  </video>
+
   <canvas #canvas hidden></canvas>
 
-  <select
-  [ngModel]="selectedFilter"
-  (ngModelChange)="selectedFilter = $event">
-  <option value="none">Normal</option>
-  <option value="grayscale">Grayscale</option>
-  <option value="sepia">Sepia</option>
-  <option value="blur">Blur</option>
-</select>
-
-  <div class="buttons">
-    <button (click)="capture()">📸 Capture</button>
-    <button (click)="switchCamera()">🔄 Switch</button>
-    <button (click)="stopCamera()">🛑 Stop</button>
+  <div class="controls">
+    <button (click)="startCamera()" [disabled]="isCameraOn">Start</button>
+    <button (click)="stopCamera()" [disabled]="!isCameraOn">Stop</button>
+    <button (click)="switchCamera()" [disabled]="!isCameraOn">Switch</button>
   </div>
 
-  <div *ngIf="capturedImage" class="preview">
-    <img [src]="capturedImage">
-    <button (click)="download()">⬇️ Download</button>
-  </div>
-
-
-<div *ngIf="qrCodeUrl" class="qr">
-  <p>📱 Scan to download</p>
-  <img [src]="qrCodeUrl" alt="QR Code">
-</div>
-
-
-</div>
-
- -->
-
-
-
- <!-- <div class="booth">
-
-  <button *ngIf="!isCameraOn" (click)="startCamera()">
-    ▶️ Start Camera
-  </button>
-
-  <video *ngIf="isCameraOn" #video autoplay></video>
-<video #video 
-       width="320" 
-       height="240" 
-       autoplay 
-       playsinline 
-       [style.filter]="getFilter()">
-</video>
-
-<canvas #canvas style="display:none;"></canvas>
-
-  <select *ngIf="isCameraOn"
-    [ngModel]="selectedFilter"
-    (ngModelChange)="selectedFilter = $event">
-    <option value="none">Normal</option>
+  <select (change)="onFilterChange($event)">
+    <option value="none">None</option>
     <option value="grayscale">Grayscale</option>
     <option value="sepia">Sepia</option>
     <option value="blur">Blur</option>
+    <option value="brightness">Brightness</option>
+    <option value="contrast">Contrast</option>
+    <option value="saturate">Saturate</option>
+    <option value="vintage">Vintage</option>
+    <option value="cool">Cool</option>
   </select>
 
-  <div *ngIf="isCameraOn">
-    <button (click)="capture()">📸 Capture</button>
-    <button (click)="switchCamera()">🔄 Switch</button>
-    <button (click)="stopCamera()">🛑 Stop</button>
+  <select [(ngModel)]="selectedFrame">
+    <option value="none">No Frame</option>
+    <option value="birthday">Birthday</option>
+    <option value="wedding">Wedding</option>
+    <option value="marriage">Marriage</option>
+  </select>
+
+  <button (click)="startCountdown()" [disabled]="!isCameraOn">
+    Capture
+  </button>
+
+  <div class="countdown" *ngIf="countdown > 0">
+    {{ countdown }}
   </div>
 
-</div> -->
-
-
-
-
-
-<div class="photo-booth-container">
-
-  <!-- Live Camera Video -->
-  <video #video 
-         width="320" 
-         height="240" 
-         autoplay 
-         playsinline 
-         [style.filter]="getFilter()">
-  </video>
-
-  <!-- Hidden Canvas (used for capturing the photo) -->
-  <canvas #canvas style="display:none;"></canvas>
-
-  <!-- Camera Controls -->
-  <div class="controls" style="margin-top:10px;">
-    <button (click)="startCamera()" [disabled]="isCameraOn">Start Camera</button>
-    <button (click)="stopCamera()" [disabled]="!isCameraOn">Stop Camera</button>
-    <button (click)="switchCamera()" [disabled]="!isCameraOn">Switch Camera</button>
+  <div *ngIf="capturedImage">
+    <img [src]="capturedImage">
+    <br>
+    <button (click)="download()">Download</button>
+    <button (click)="retake()">Retake</button>
   </div>
 
-  <!-- Filters -->
-  <div class="filters" style="margin-top:10px;">
-    <label>Choose Filter: </label>
-    <select [(ngModel)]="selectedFilter">
-      <option value="none">None</option>
-      <option value="grayscale">Grayscale</option>
-      <option value="sepia">Sepia</option>
-      <option value="blur">Blur</option>
-    </select>
-  </div>
-
-  <!-- Capture & Download -->
-  <div class="capture-download" style="margin-top:10px;">
-    <button (click)="capture()" [disabled]="!isCameraOn">Capture</button>
-    <button (click)="download()" [disabled]="!capturedImage">Download</button>
-  </div>
-
-  <!-- Show Captured Image -->
-  <div class="captured-image" *ngIf="capturedImage" style="margin-top:10px;">
-    <h3>Captured Image:</h3>
-    <img [src]="capturedImage" width="320" height="240" />
-  </div>
-
-  <!-- Show QR Code -->
-  <div class="qr-code" *ngIf="qrCodeUrl" style="margin-top:10px;">
-    <h3>QR Code:</h3>
-    <img [src]="qrCodeUrl" />
+  <div *ngIf="qrCodeUrl">
+    <h4>Scan QR</h4>
+    <img [src]="qrCodeUrl">
   </div>
 
 </div>
