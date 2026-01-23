@@ -1,1 +1,18 @@
-<p>gallery works!</p>
+<section class="gallery-section">
+  <h1>Our Gallery</h1>
+  <p class="subtitle">Real moments captured from our events</p>
+
+  <div class="gallery-grid">
+    <div
+      class="gallery-item"
+      *ngFor="let img of images"
+      (click)="open(img)">
+      <img [src]="img" alt="Photo Booth Image">
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" *ngIf="selectedImage" (click)="close()">
+  <img [src]="selectedImage">
+</div>

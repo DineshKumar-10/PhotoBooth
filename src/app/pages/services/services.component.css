@@ -1,6 +1,8 @@
 .services-section {
   padding: 80px 20px;
-  background: linear-gradient(180deg, #ffffff, #f6f6f6);
+  /* background: linear-gradient(180deg, #ffffff, #f6f6f6); */
+    background: rgba(0,0,0,0.65);
+
 }
 
 .container {
