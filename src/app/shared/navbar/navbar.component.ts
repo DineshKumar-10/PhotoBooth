@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,8 @@ export class NavbarComponent {
   showCameraExperience = false;
   experienceText = 'Get Ready...';
 
+  constructor(private router: Router) {}
+
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
@@ -21,6 +24,11 @@ export class NavbarComponent {
 
   playCameraExperience() {
     this.closeMenu();
+
+    // ✅ Step 1: Go to Home
+    this.router.navigate(['/']);
+
+    // ✅ Step 2: Camera experience animation
     this.showCameraExperience = true;
 
     const texts = ['Get Ready...', 'Smile 😊', '📸 Click!'];
@@ -39,3 +47,6 @@ export class NavbarComponent {
     }, 700);
   }
 }
+
+
+

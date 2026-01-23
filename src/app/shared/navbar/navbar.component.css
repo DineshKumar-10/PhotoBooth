@@ -1,16 +1,22 @@
-/* ===== NAVBAR ===== */
+/* NAVBAR WRAPPER */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
   height: 72px;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 26px;
   z-index: 1000;
+}
+
+/* LEFT / RIGHT */
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
 }
 
 /* LOGO */
@@ -19,89 +25,66 @@
   font-size: 22px;
   font-weight: 700;
   cursor: pointer;
-  white-space: nowrap;
+  user-select: none;
+  transition: transform 0.25s ease, opacity 0.25s;
 }
 
-/* MENU ICON */
-.menu-icon {
-  display: none;
-  font-size: 30px;
+.logo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* HAMBURGER BUTTON */
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 32px;
   color: #fff;
   cursor: pointer;
+  display: none;
+  z-index: 10000;
 }
 
 /* LINKS */
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 22px;
   list-style: none;
-}
-
-.nav-links li {
   display: flex;
-  align-items: center;
+  gap: 20px;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-size: 15px;
-  white-space: nowrap; /* ✅ PREVENT TEXT BREAK */
+  white-space: nowrap;
 }
 
-/* UNDERLINE */
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: #ff5f6d;
-  transition: width 0.3s;
-}
 
-.nav-links a:hover::after {
-  width: 100%;
-}
-
-/* ===== PHOTO BOOTH BUTTON (FIXED) ===== */
-.photo-item {
-  display: flex;
-  justify-content: center;
-}
-
+/* PHOTO BUTTON */
 .photo-btn {
-  display: inline-flex;          /* ✅ KEY FIX */
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  background: linear-gradient(135deg, #ff5f6d, #ffc371);
   padding: 8px 18px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #ff5f6d, #ffc371);
   color: #000 !important;
   font-weight: 600;
-  white-space: nowrap;           /* ✅ NO WRAP */
-  min-width: max-content;        /* ✅ NO CUT */
-  box-shadow: 0 4px 15px rgba(255, 95, 109, 0.45);
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
 
-  .menu-icon {
-    display: block;
+  .hamburger {
+    display: block;           /* ✅ FORCE SHOW */
   }
 
   .nav-links {
-    position: absolute;
+    position: fixed;
     top: 72px;
     left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    width: 100vw;
+    background: rgba(0,0,0,0.95);
     flex-direction: column;
+    align-items: center;
     display: none;
+    z-index: 9999;
   }
 
   .nav-links.open {
@@ -110,16 +93,11 @@
 
   .nav-links li {
     padding: 16px 0;
-    width: 100%;
-    justify-content: center;
-  }
-
-  .photo-btn {
-    width: auto;                 /* ✅ FIX */
   }
 }
 
-/* ===== CAMERA EXPERIENCE ===== */
+
+
 .camera-overlay {
   position: fixed;
   inset: 0;
@@ -146,6 +124,8 @@
 
 .camera-box h2 {
   font-size: 30px;
+  letter-spacing: 1px;
+  animation: fadeText 0.6s ease-in-out;
 }
 
 /* ANIMATIONS */
@@ -153,4 +133,9 @@
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(0.9); opacity: 0.7; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeText {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }

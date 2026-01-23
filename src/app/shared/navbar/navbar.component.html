@@ -1,13 +1,28 @@
 <nav class="navbar">
-  <!-- LOGO (Camera Experience) -->
-  <div class="logo" (click)="playCameraExperience()">
-    📸 Magizh Magic Touch
+  <!-- LEFT -->
+  <!-- <div class="nav-left">
+
+    <span class="logo" (click)="playCameraExperience()" >
+   📸 Magizh Magic Touch
+    </span>
+  </div> -->
+
+
+  <div class="nav-left">
+  <span class="logo" (click)="playCameraExperience()">
+    <span class="logo-icon">📸</span>
+    <span class="logo-text">Magizh Magic Touch</span>
+  </span>
+</div>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+    <button class="hamburger" (click)="toggleMenu()">
+      ☰
+    </button>
   </div>
 
-  <!-- Mobile Menu Icon -->
-  <div class="menu-icon" (click)="toggleMenu()">☰</div>
-
-  <!-- Links -->
+  <!-- MOBILE MENU -->
   <ul class="nav-links" [class.open]="menuOpen">
     <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
     <li><a routerLink="/about" (click)="closeMenu()">About</a></li>
@@ -15,8 +30,7 @@
     <li><a routerLink="/gallery" (click)="closeMenu()">Gallery</a></li>
     <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
 
-    <!-- Photo Booth CTA -->
-    <li class="photo-item">
+    <li>
       <a
         routerLink="/photo-booth"
         class="photo-btn"
@@ -27,7 +41,7 @@
   </ul>
 </nav>
 
-<!-- Camera Experience Overlay -->
+<!-- Camera Experience -->
 <div class="camera-overlay" *ngIf="showCameraExperience">
   <div class="camera-box">
     <div class="camera-circle"></div>
