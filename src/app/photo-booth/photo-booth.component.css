@@ -1,7 +1,8 @@
 .photo-booth-container {
-  text-align: center;
-  padding: 20px;
+  max-width: 420px;
+  margin: auto;
 }
+
 
 video, img {
   width: 400px;
@@ -43,4 +44,12 @@ button:hover {
 
 .mirror {
   transform: scaleX(-1);
+}
+
+
+
+
+:fullscreen video {
+  width: 100vw;
+  height: 100vh;
 }

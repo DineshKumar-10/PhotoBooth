@@ -25,7 +25,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     ContactComponent,
     NavbarComponent,
     PhotoBoothComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
