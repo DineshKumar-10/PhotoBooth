@@ -1,68 +1,21 @@
-<section class="services-section">
+<section class="glass-section">
   <div class="container">
-
     <h1>Our Services</h1>
-    <p class="subtitle">
-      Creative photo booth experiences designed for unforgettable moments
-    </p>
+    <p class="subtitle">Premium photo booth experiences</p>
 
     <div class="services-grid">
-
-      <div class="service-card">
-        <div class="icon">💍</div>
-        <h3>Wedding Photo Booth</h3>
-        <p>
-          Capture elegant wedding memories with customized frames,
-          studio-quality photos, and instant prints.
-        </p>
+      <div class="service-card" *ngFor="let s of [
+        {icon:'💍',title:'Wedding Booth'},
+        {icon:'🎂',title:'Birthday Booth'},
+        {icon:'🏢',title:'Corporate Events'},
+        {icon:'🖼️',title:'Custom Frames'},
+        {icon:'🖨️',title:'Instant Prints'},
+        {icon:'☁️',title:'Digital Gallery'}
+      ]">
+        <div class="icon">{{s.icon}}</div>
+        <h3>{{s.title}}</h3>
+        <p>High quality experience with premium design & instant memories.</p>
       </div>
-
-      <div class="service-card">
-        <div class="icon">🎂</div>
-        <h3>Birthday & Party Booth</h3>
-        <p>
-          Fun, colorful photo booth setups perfect for birthdays,
-          anniversaries, and private celebrations.
-        </p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">🏢</div>
-        <h3>Corporate Events</h3>
-        <p>
-          Professional photo booth solutions for brand launches,
-          meetings, exhibitions, and company celebrations.
-        </p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">🖼️</div>
-        <h3>Customized Frames</h3>
-        <p>
-          Personalized photo frames with names, dates, logos,
-          and themes matching your event style.
-        </p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">🖨️</div>
-        <h3>Instant Photo Printing</h3>
-        <p>
-          High-quality instant prints so your guests can take
-          beautiful memories home immediately.
-        </p>
-      </div>
-
-      <div class="service-card">
-        <div class="icon">☁️</div>
-        <h3>Digital Gallery</h3>
-        <p>
-          Secure digital gallery access to view, download,
-          and share event photos anytime.
-        </p>
-      </div>
-
     </div>
-
   </div>
 </section>

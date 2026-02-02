@@ -1,48 +1,24 @@
-.about-section {
-  padding: 60px 20px;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #222;
-}
-
-.intro {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 30px;
-  color: #555;
-}
-
-.content {
+.glass-section {
   display: flex;
   justify-content: center;
 }
 
-.text p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #444;
-  margin-bottom: 15px;
+.glass-card {
+  max-width: 850px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 26px;
+  padding: 55px;
+  text-align: center;
+  box-shadow: 0 40px 80px rgba(0,0,0,.6);
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .about-section {
-    padding: 40px 15px;
-  }
+.glass-card strong {
+  color: #ffcc00;
+}
 
-  h1 {
-    font-size: 26px;
-  }
-
-  .intro {
-    font-size: 16px;
-  }
+.glass-card p {
+  color: #ddd;
+  line-height: 1.9;
+  font-size: 16px;
 }

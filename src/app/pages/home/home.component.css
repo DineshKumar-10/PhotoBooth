@@ -1,75 +1,157 @@
-.hero {
+/* 🌌 HERO SECTION */
+.hero-3d {
+  position: relative;
   min-height: 100vh;
-  background: url('/assets/slide1.jpg') center/cover no-repeat;
-  animation: slideshow 15s infinite;
+  perspective: 1200px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  position: relative;
-  padding-top: 80px;
+}
+
+/* 🎥 BACKGROUND SLIDESHOW */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: slideshow 18s infinite;
+  transform: scale(1.1);
 }
 
 @keyframes slideshow {
-  0% { background-image: url('/assets/slide1.jpg'); }
-  33% { background-image: url('/assets/slide2.jpg'); }
-  66% { background-image: url('/assets/slide3.jpg'); }
+  0%   { background-image: url('/assets/slide1.jpg'); }
+  33%  { background-image: url('/assets/slide2.jpg'); }
+  66%  { background-image: url('/assets/slide3.jpg'); }
 }
 
-.overlay {
+/* 🌑 DARK OVERLAY */
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: radial-gradient(circle at top, rgba(0,0,0,0.5), rgba(0,0,0,0.85));
 }
 
-.hero-content {
+/* 🧊 GLASS 3D CARD */
+.hero-card {
   position: relative;
-  color: #fff;
   z-index: 2;
+  max-width: 720px;
+  padding: 60px 50px;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.45),
+    inset 0 0 30px rgba(255, 255, 255, 0.08);
+
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
 }
 
-.hero h1 {
-  font-size: 3rem;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotateX(2deg);
+  }
 }
 
-.hero h1 span {
+/* ✨ TITLE */
+.title {
+  font-size: 3.2rem;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.title span {
   color: #ffcc00;
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
 }
 
+/* 📝 SUBTITLE */
+.subtitle {
+  color: #eaeaea;
+  font-size: 1.15rem;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+/* 🔘 BUTTONS */
 .hero-buttons {
-  margin-top: 20px;
   display: flex;
-  gap: 15px;
+  gap: 18px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .btn {
-  padding: 12px 26px;
-  border-radius: 30px;
-  font-weight: bold;
+  padding: 14px 30px;
+  border-radius: 40px;
+  font-weight: 700;
   text-decoration: none;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.primary {
-  background: #ffcc00;
+/* 🌟 PRIMARY */
+.btn-primary {
+  background: linear-gradient(135deg, #ffcc00, #ff9900);
   color: #000;
+  box-shadow: 0 12px 30px rgba(255, 204, 0, 0.45);
 }
 
-.secondary {
-  border: 2px solid #fff;
+.btn-primary:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 18px 40px rgba(255, 204, 0, 0.7);
+}
+
+/* 🌙 SECONDARY */
+.btn-secondary {
   color: #fff;
+  border: 2px solid rgba(255,255,255,0.7);
+  background: transparent;
 }
 
-/* WHATSAPP */
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-4px);
+}
+
+/* 💬 WHATSAPP */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 22px;
+  right: 22px;
   background: #25D366;
   color: #fff;
   font-size: 28px;
-  padding: 14px;
+  padding: 16px;
   border-radius: 50%;
   text-decoration: none;
-  z-index: 1000;
+  z-index: 999;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.15);
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .hero-card {
+    padding: 40px 25px;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
 }

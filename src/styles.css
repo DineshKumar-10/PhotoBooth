@@ -15,7 +15,27 @@
   box-sizing: border-box;
 }
 
+
+
 body {
   margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f0f;
+  color: #fff;
   overflow-x: hidden;
+}
+
+section {
+  padding: 90px 20px;
+}
+
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #bbb;
+  margin-bottom: 40px;
+  text-align: center;
 }
