@@ -1,28 +1,18 @@
 <nav class="navbar">
-  <!-- LEFT -->
-  <!-- <div class="nav-left">
-
-    <span class="logo" (click)="playCameraExperience()" >
-   📸 Magizh Magic Touch
-    </span>
-  </div> -->
-
-
+  <!-- LOGO -->
   <div class="nav-left">
-  <span class="logo" (click)="playCameraExperience()">
-    <span class="logo-icon">📸</span>
-    <span class="logo-text">Magizh Magic Touch</span>
-  </span>
-</div>
-
-  <!-- RIGHT -->
-  <div class="nav-right">
-    <button class="hamburger" (click)="toggleMenu()">
-      ☰
-    </button>
+    <span class="logo" (click)="playCameraExperience()">
+      <span class="logo-icon">📸</span>
+      <span class="logo-text">Magizh Magic Touch</span>
+    </span>
   </div>
 
-  <!-- MOBILE MENU -->
+  <!-- HAMBURGER -->
+  <div class="nav-right">
+    <button class="hamburger" (click)="toggleMenu()">☰</button>
+  </div>
+
+  <!-- LINKS -->
   <ul class="nav-links" [class.open]="menuOpen">
     <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
     <li><a routerLink="/about" (click)="closeMenu()">About</a></li>
@@ -41,7 +31,7 @@
   </ul>
 </nav>
 
-<!-- Camera Experience -->
+<!-- CAMERA EXPERIENCE -->
 <div class="camera-overlay" *ngIf="showCameraExperience">
   <div class="camera-box">
     <div class="camera-circle"></div>
