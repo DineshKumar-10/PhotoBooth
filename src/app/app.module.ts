@@ -15,7 +15,6 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { PhotoBoothComponent } from './photo-booth/photo-booth.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { BookingComponent } from './booking/booking.component';
-import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { AdminComponent } from './admin/admin.component';
     PhotoBoothComponent,
     FooterComponent,
     BookingComponent,
-    AdminComponent,
   ],
   imports: [
     BrowserModule,
