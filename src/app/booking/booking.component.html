@@ -1,87 +1,55 @@
-<section class="booking-container">
-  <h2 class="title">Book Your Photo Booth</h2>
+<section class="booking">
+  <h2>Book Your Photo Booth</h2>
 
-  <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+  <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
 
-    <!-- STEP 1 -->
-    <div class="card">
+    <div class="card fade">
       <h3>Event Details</h3>
 
-      <select [(ngModel)]="booking.eventType" name="eventType" required>
-        <option value="">Select Event Type</option>
+      <select formControlName="eventType">
+        <option value="">Event Type</option>
         <option>Wedding</option>
         <option>Birthday</option>
         <option>Corporate</option>
-        <option>Reception</option>
       </select>
 
-      <select [(ngModel)]="booking.boothType" name="boothType" required (change)="calculatePrice()">
-        <option value="">Select Booth Type</option>
-        <option>DSLR Photo Booth</option>
-        <option>Mirror Photo Booth</option>
-        <option>Combo</option>
+      <select formControlName="boothType">
+        <option value="">Booth Type</option>
+        <option value="DSLR">DSLR Photo Booth</option>
+        <option value="Mirror">Mirror Photo Booth</option>
+        <option value="Combo">Combo</option>
       </select>
 
-      <input type="date" [(ngModel)]="booking.eventDate" name="eventDate" required>
-      <input type="time" [(ngModel)]="booking.startTime" name="startTime" required>
+      <input type="date" formControlName="eventDate">
+      <input type="time" formControlName="startTime">
 
-      <select [(ngModel)]="booking.duration" name="duration" (change)="calculatePrice()">
-        <option value="2">2 Hours</option>
-        <option value="4">4 Hours</option>
-        <option value="8">Full Day</option>
+      <select formControlName="duration">
+        <option [value]="2">2 Hours</option>
+        <option [value]="4">4 Hours</option>
+        <option [value]="8">Full Day</option>
       </select>
     </div>
 
-    <!-- STEP 2 -->
-    <div class="card">
-      <h3>Choose Package</h3>
+    <div class="card fade">
+      <h3>Package</h3>
 
-      <div class="packages">
-        <label>
-          <input type="radio" name="package" value="Basic"
-                 [(ngModel)]="booking.packageName"
-                 (change)="calculatePrice()"> Basic
-        </label>
+      <label><input type="radio" value="Basic" formControlName="packageName"> Basic</label>
+      <label><input type="radio" value="Premium" formControlName="packageName"> Premium</label>
+      <label><input type="radio" value="Custom" formControlName="packageName"> Custom</label>
 
-        <label>
-          <input type="radio" name="package" value="Premium"
-                 [(ngModel)]="booking.packageName"
-                 (change)="calculatePrice()"> Premium
-        </label>
-
-        <label>
-          <input type="radio" name="package" value="Custom"
-                 [(ngModel)]="booking.packageName"
-                 (change)="calculatePrice()"> Custom
-        </label>
-      </div>
-
-      <div class="price">
-        Total Price: ₹{{ booking.totalPrice }}
-      </div>
+      <div class="price">₹ {{ totalPrice }}</div>
     </div>
 
-    <!-- STEP 3 -->
-    <div class="card">
-      <h3>Customer Details</h3>
+    <div class="card fade">
+      <h3>Your Details</h3>
 
-      <input type="text" placeholder="Full Name"
-             [(ngModel)]="booking.customerName" name="customerName" required>
-
-      <input type="tel" placeholder="Phone Number"
-             [(ngModel)]="booking.phone" name="phone" required>
-
-      <input type="email" placeholder="Email"
-             [(ngModel)]="booking.email" name="email">
-
-      <textarea placeholder="Event Location"
-                [(ngModel)]="booking.location"
-                name="location" required></textarea>
+      <input type="text" placeholder="Name" formControlName="customerName">
+      <input type="tel" placeholder="Phone" formControlName="phone">
+      <input type="email" placeholder="Email" formControlName="email">
+      <textarea placeholder="Event Location" formControlName="location"></textarea>
     </div>
 
-    <button class="btn" [disabled]="!bookingForm.valid">
-      Submit Booking
-    </button>
+    <button [disabled]="bookingForm.invalid">Confirm Booking</button>
 
   </form>
 </section>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -15,6 +15,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { PhotoBoothComponent } from './photo-booth/photo-booth.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { BookingComponent } from './booking/booking.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,14 @@ import { BookingComponent } from './booking/booking.component';
     PhotoBoothComponent,
     FooterComponent,
     BookingComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-     
-
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,34 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
-export class BookingComponent {
+export class BookingComponent implements OnInit {
 
-  booking: any = {
-    duration: 2,
-    totalPrice: 0
-  };
+  bookingForm!: FormGroup;
+  totalPrice = 0;
+
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.bookingForm = this.fb.group({
+      eventType: ['', Validators.required],
+      boothType: ['', Validators.required],
+      eventDate: ['', Validators.required],
+      startTime: ['', Validators.required],
+      duration: [2, Validators.required],
+      packageName: ['', Validators.required],
+      customerName: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
+      email: [''],
+      location: ['', Validators.required]
+    });
+
+    this.bookingForm.valueChanges.subscribe(() => {
+      this.calculatePrice();
+    });
+  }
 
   calculatePrice() {
     let price = 0;
+    const f = this.bookingForm.value;
 
-    if (this.booking.boothType === 'DSLR Photo Booth') price += 5000;
-    if (this.booking.boothType === 'Mirror Photo Booth') price += 7000;
-    if (this.booking.boothType === 'Combo') price += 11000;
+    if (f.boothType === 'DSLR') price += 5000;
+    if (f.boothType === 'Mirror') price += 7000;
+    if (f.boothType === 'Combo') price += 11000;
 
-    if (this.booking.packageName === 'Premium') price += 3000;
-    if (this.booking.packageName === 'Custom') price += 5000;
+    if (f.packageName === 'Premium') price += 3000;
+    if (f.packageName === 'Custom') price += 5000;
 
-    price = price * (this.booking.duration / 2);
-
-    this.booking.totalPrice = price;
+    price *= (f.duration / 2);
+    this.totalPrice = price;
   }
 
   submitBooking() {
-    console.log(this.booking);
-    alert('Booking request submitted!');
+    if (this.bookingForm.invalid) return;
+
+    const bookingData = {
+      ...this.bookingForm.value,
+      totalPrice: this.totalPrice
+    };
+
+    console.log('BOOKING DATA', bookingData);
+    alert('Booking request sent!');
   }
 }

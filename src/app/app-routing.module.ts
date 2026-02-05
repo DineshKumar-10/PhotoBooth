@@ -7,6 +7,7 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PhotoBoothComponent } from './photo-booth/photo-booth.component';
 import { BookingComponent } from './booking/booking.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'booking', component: BookingComponent },
     { path: 'photo-booth', component: PhotoBoothComponent },
+    { path: 'admin', component: AdminComponent },
     { path: '**', redirectTo: '' } // fallback
 
 ];
