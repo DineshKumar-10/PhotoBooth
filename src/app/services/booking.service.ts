@@ -8,7 +8,7 @@ import { Booking } from '../models/booking';
 })
 export class BookingService {
 
-  private apiUrl = 'http://localhost:8080/api/bookings';
+  private apiUrl = 'https://booking-backend-1-id0e.onrender.com/';
 
   constructor(private http: HttpClient) {}
 
@@ -18,14 +18,14 @@ export class BookingService {
 
   approveBooking(id: number) {
   return this.http.put(
-    `http://localhost:8080/api/bookings/${id}/approve`,
+    `https://booking-backend-1-id0e.onrender.com//${id}/approve`,
     {}
   );
 }
 
 rejectBooking(id: number) {
   return this.http.put(
-    `http://localhost:8080/api/bookings/${id}/reject`,
+    `https://booking-backend-1-id0e.onrender.com//${id}/reject`,
     {}
   );
 }
