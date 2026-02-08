@@ -130,9 +130,10 @@ export class BookingComponent implements OnInit {
     };
 
     this.http.post(
-      'https://booking-backend-1-id0e.onrender.com/',
-      bookingData
-    ).subscribe({
+  'https://booking-backend-1-id0e.onrender.com/api/bookings',
+  bookingData
+)
+.subscribe({
       next: () => {
         alert('Booking successful');
         this.bookingForm.reset();
