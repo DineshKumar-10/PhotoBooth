@@ -39,7 +39,7 @@ import { Booking } from '../models/booking';
 })
 export class BookingService {
 
-  private apiUrl = 'https://booking-backend-1-id0e.onrender.com/api/bookings';
+private apiUrl = 'https://booking-backend-1-id0e.onrender.com/api/bookings';
 
   constructor(private http: HttpClient) {}
 
