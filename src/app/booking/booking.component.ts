@@ -110,11 +110,12 @@ export class BookingComponent implements OnInit {
     let price = 0;
     const f = this.bookingForm.value;
 
-    if (f.boothType === 'DSLR') price += 5000;
+    if (f.boothType === 'DSLR') price += 7000;
     if (f.boothType === 'Mirror') price += 7000;
     if (f.boothType === 'Combo') price += 11000;
 
-    if (f.packageName === 'Premium') price += 3000;
+    if (f.packageName === 'basic') price += 8000;
+    if (f.packageName === 'Premium') price += 11000;
     if (f.packageName === 'Custom') price += 5000;
 
     price *= (f.duration / 2);
