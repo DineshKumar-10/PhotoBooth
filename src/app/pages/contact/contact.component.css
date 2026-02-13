@@ -1,61 +1,41 @@
-/* 🌈 PAGE BACKGROUND */
-body {
-  font-family: 'Poppins', sans-serif;
-}
-
-/* 📦 FORM CONTAINER */
-.contact-wrapper {
+/* .contact-wrapper {
   max-width: 520px;
   margin: 60px auto;
   padding: 40px 30px;
   background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
-  
 }
 
-/* 📝 TITLE */
 h2 {
   text-align: center;
-  font-size: 2.1rem;
+  font-size: 2rem;
   margin-bottom: 8px;
-  color: #222;
 }
 
 .subtitle {
   text-align: center;
   color: #666;
-  font-size: 14px;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
-/* 🧱 FORM GROUP */
 .form-group {
-  position: fixed;
+  position: relative;
   margin-bottom: 24px;
-  
-}
-video, img {
-  object-fit: cover;
-  border-radius: 12px;
 }
 
-
-/* 🖊 INPUTS */
 input,
 textarea,
 select {
   width: 100%;
-  padding: 14px 14px;
+  padding: 14px;
   border-radius: 10px;
-  border: 1.5px solid #dcdcdc;
+  border: 1px solid #dcdcdc;
+  font-size: 14px;
   outline: none;
-  font-size: 15px;
-  background: #fff;
   transition: 0.3s ease;
 }
 
-/* 🎯 FOCUS EFFECT */
 input:focus,
 textarea:focus,
 select:focus {
@@ -63,21 +43,19 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
 }
 
-/* 🏷 FLOATING LABEL */
+/* Floating label */
 label {
   position: absolute;
-  top: 50%;
+  top: 14px;
   left: 14px;
-  transform: translateY(-50%);
-  background: #fff;
-  padding: 0 6px;
   font-size: 14px;
   color: #888;
   pointer-events: none;
-  transition: 0.25s ease;
+  transition: 0.2s ease;
+  background: white;
+  padding: 0 5px;
 }
 
-/* FLOAT UP */
 input:focus + label,
 input:not(:placeholder-shown) + label,
 textarea:focus + label,
@@ -87,32 +65,30 @@ textarea:not(:placeholder-shown) + label {
   color: #6c63ff;
 }
 
-/* 📋 SELECT FIX */
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg fill='gray' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 7l4.5 4.5L14.5 7'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 14px;
-}
-
-/* ⚠ ERROR TEXT */
 small {
   color: #e63946;
   font-size: 12px;
-  margin-top: 4px;
-  display: block;
 }
 
-/* 🔘 BUTTON */
 button {
   width: 100%;
   padding: 14px;
-  margin-top: 10px;
   border-radius: 30px;
   border: none;
   font-size: 16px;
   font-weight: 600;
-  background: linear-gradient(135deg, #6c63ff, #4d47d8)
+  background: linear-gradient(135deg, #6c63ff, #4d47d8);
+  color: white;
+  cursor: pointer;
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success {
+  text-align: center;
+  margin-top: 20px;
+  color: green;
+} */
