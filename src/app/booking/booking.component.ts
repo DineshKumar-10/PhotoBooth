@@ -114,7 +114,7 @@ export class BookingComponent implements OnInit {
     if (f.boothType === 'Mirror') price += 7000;
     if (f.boothType === 'Combo') price += 11000;
 
-    if (f.packageName === 'basic') price += 8000;
+    if (f.packageName === 'Basic') price += 8000;
     if (f.packageName === 'Premium') price += 11000;
     if (f.packageName === 'Custom') price += 5000;
 

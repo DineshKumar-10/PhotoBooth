@@ -17,7 +17,7 @@ const routes: Routes = [
     { path: 'contact', component: ContactComponent },
     { path: 'booking', component: BookingComponent },
     { path: 'photo-booth', component: PhotoBoothComponent },
-    { path: 'admin', component: AdminComponent },
+    // { path: 'admin', component: AdminComponent },
     { path: '**', redirectTo: '' } // fallback
 
 ];
