@@ -9,6 +9,11 @@
   gap: 30px;
 }
 
+.container h1{
+  display: flex;
+  justify-content: center;
+}
+
 .service-card {
   background: rgba(255,255,255,0.14);
   backdrop-filter: blur(14px);
