@@ -56,9 +56,9 @@
     </div>
 
     <!-- Event Type -->
-    <div class="form-group">
-      <select name="eventType" ngModel required>
-        <option value="">Select Booking</option>
+    <div class="form-group" >
+      <select name="eventType" ngModel required >
+        <option value="" >Select Booking</option>
         <option value="Birthday Event">Birthday Event</option>
         <option value="Engagement">Engagement</option>
         <option value="Wedding Event">Wedding Event</option>
@@ -90,10 +90,10 @@
       <select name="city" ngModel required>
         <option value="">Select City</option>
         <option value="Chennai">Chennai</option>
-        <option value="Vellore">Vellore</option>
+        <!-- <option value="Vellore">Vellore</option> -->
         <option value="Kanchipuram">Kanchipuram</option>
-        <option value="Ranipet">Ranipet</option>
-        <option value="Tiruvannamalai">Tiruvannamalai</option>
+        <!-- <option value="Ranipet">Ranipet</option> -->
+        <!-- <option value="Tiruvannamalai">Tiruvannamalai</option> -->
       </select>
       <small *ngIf="contactForm.submitted && contactForm.controls['city']?.invalid">
         Please select a valid city
@@ -101,15 +101,17 @@
     </div>
 
     <!-- State -->
-    <div class="form-group">
+
+    <!-- <div class="form-group">
       <select name="state" ngModel required>
         <option value="">Select State</option>
         <option value="Tamil Nadu">Tamil Nadu</option>
       </select>
-    </div>
+    </div> -->
 
     <!-- Pincode -->
-    <div class="form-group">
+
+    <!-- <div class="form-group">
       <input
         type="text"
         name="pincode"
@@ -122,7 +124,7 @@
       <small *ngIf="contactForm.submitted && contactForm.controls['pincode']?.invalid">
         Enter valid 6-digit pincode
       </small>
-    </div>
+    </div> -->
 
     <!-- Message -->
     <div class="form-group">
