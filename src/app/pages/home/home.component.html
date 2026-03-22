@@ -3,6 +3,7 @@
   <div class="hero-overlay"></div>
 
   <div class="hero-card">
+    <p class="eyebrow">Trusted by premium wedding planners and brands</p>
     <h1 class="title">
       Magizh <span>Magic Touch</span>
     </h1>
@@ -20,14 +21,169 @@
         📞 Call Now
       </a>
     </div>
+
+    <div class="hero-trust">
+      <div class="trust-item" *ngFor="let stat of trustStats">
+        <p class="trust-value">{{ stat.value }}</p>
+        <p class="trust-label">{{ stat.label }}</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- <app-services></app-services> -->
+<section class="section section-logos">
+  <div class="logo-strip">
+    <span *ngFor="let brand of brandLogos">{{ brand }}</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Why businesses choose us</h2>
+    <p>Elevate guest engagement with a seamless, high-touch experience.</p>
+  </div>
+
+  <div class="grid grid-2">
+    <article class="card" *ngFor="let highlight of serviceHighlights">
+      <h3>{{ highlight.title }}</h3>
+      <p>{{ highlight.description }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="section-header">
+    <h2>Built for every celebration</h2>
+    <p>From intimate weddings to high-volume activations.</p>
+  </div>
+
+  <div class="pill-grid">
+    <span class="pill" *ngFor="let event of eventTypes">{{ event }}</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Packages built for real events</h2>
+    <p>Transparent pricing with no hidden fees. Upgrade anytime.</p>
+  </div>
+
+  <div class="grid grid-3">
+    <article
+      class="card pricing"
+      *ngFor="let package of packages"
+      [class.highlight]="package.highlight">
+      <header>
+        <h3>{{ package.name }}</h3>
+        <p class="price">{{ package.price }}</p>
+        <span class="duration">{{ package.duration }}</span>
+      </header>
+      <ul>
+        <li *ngFor="let feature of package.features">{{ feature }}</li>
+      </ul>
+      <a routerLink="/contact" class="btn btn-primary btn-block">Request a Quote</a>
+    </article>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="section-header">
+    <h2>How it works</h2>
+    <p>We keep the process fast, clear, and stress-free for your team.</p>
+  </div>
+
+  <div class="grid grid-4">
+    <article class="card step" *ngFor="let step of processSteps">
+      <h3>{{ step.title }}</h3>
+      <p>{{ step.description }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Client love</h2>
+    <p>Real feedback from weddings and brand activations.</p>
+  </div>
+
+  <div class="grid grid-3">
+    <article class="card testimonial" *ngFor="let item of testimonials">
+      <p class="quote">“{{ item.quote }}”</p>
+      <p class="testimonial-name">{{ item.name }}</p>
+      <p class="testimonial-role">{{ item.role }}</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-highlight">
+  <div class="section-header">
+    <h2>Make your brand unforgettable</h2>
+    <p>
+      Add branded overlays, lead capture, and analytics dashboards for corporate
+      activations.
+    </p>
+  </div>
+
+  <div class="cta-grid">
+    <div>
+      <h3>Event-ready add-ons</h3>
+      <ul class="checklist">
+        <li>Data capture &amp; opt-in marketing</li>
+        <li>Live social media wall</li>
+        <li>Custom brand activation kits</li>
+        <li>VIP concierge staffing</li>
+      </ul>
+    </div>
+    <div class="cta-card">
+      <p class="cta-title">Need a bespoke package?</p>
+      <p class="cta-subtitle">
+        Get a tailored proposal in under 24 hours.
+      </p>
+      <div class="hero-buttons">
+        <a routerLink="/contact" class="btn btn-primary">📩 Get Proposal</a>
+        <a
+          href="https://wa.me/919345544255"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noreferrer">
+          💬 WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-muted">
+  <div class="section-header">
+    <h2>Operations &amp; compliance</h2>
+    <p>Peace of mind for enterprise clients and VIP weddings.</p>
+  </div>
+
+  <div class="grid grid-3">
+    <article class="card" *ngFor="let note of complianceNotes">
+      <h3>{{ note }}</h3>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <h2>Frequently asked questions</h2>
+    <p>Everything you need to plan your event with confidence.</p>
+  </div>
+
+  <div class="grid grid-3">
+    <article class="card" *ngFor="let faq of faqs">
+      <h3>{{ faq.question }}</h3>
+      <p>{{ faq.answer }}</p>
+    </article>
+  </div>
+</section>
 
 <a
   href="https://wa.me/919345544255"
   target="_blank"
+  rel="noreferrer"
   class="whatsapp-float">
   💬
 </a>
