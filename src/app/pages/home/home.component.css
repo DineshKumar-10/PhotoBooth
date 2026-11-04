@@ -1,157 +1,560 @@
-/* 🌌 HERO SECTION */
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
 .hero-3d {
   position: relative;
   min-height: 100vh;
+  min-height: 100svh;
   perspective: 1200px;
   overflow: hidden;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 80px 20px;
+  background: #080808;
+  isolation: isolate;
 }
 
-/* 🎥 BACKGROUND SLIDESHOW */
+/* =====================================
+   BACKGROUND SLIDESHOW
+===================================== */
+
 .hero-bg {
   position: absolute;
   inset: 0;
+  z-index: -3;
+
+  background-image: url('/assets/slide1.jpg');
   background-size: cover;
   background-position: center;
+
   animation: slideshow 18s infinite;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 @keyframes slideshow {
-  0%   { background-image: url('/assets/slide1.jpg'); }
-  33%  { background-image: url('/assets/slide2.jpg'); }
-  66%  { background-image: url('/assets/slide3.jpg'); }
+  0%, 30% {
+    background-image: url('/assets/slide1.jpg');
+  }
+
+  33%, 63% {
+    background-image: url('/assets/slide2.jpg');
+  }
+
+  66%, 96% {
+    background-image: url('/assets/slide3.jpg');
+  }
+
+  100% {
+    background-image: url('/assets/slide1.jpg');
+  }
 }
 
-/* 🌑 DARK OVERLAY */
+/* =====================================
+   DARK GOLDEN OVERLAY
+===================================== */
+
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top, rgba(0,0,0,0.5), rgba(0,0,0,0.85));
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(20, 15, 5, 0.48),
+      rgba(0, 0, 0, 0.92)
+    );
+
+  backdrop-filter: blur(2px);
 }
 
-/* 🧊 GLASS 3D CARD */
+/* =====================================
+   MAIN GLASS CARD
+===================================== */
+
 .hero-card {
   position: relative;
   z-index: 2;
-  max-width: 720px;
-  padding: 60px 50px;
+
+  width: 100%;
+  max-width: 850px;
+
+  padding: 35px 50px 40px;
+
   text-align: center;
 
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(15, 15, 15, 0.66);
+
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 204, 0, 0.35);
+
   border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
 
   box-shadow:
-    0 40px 80px rgba(0, 0, 0, 0.45),
-    inset 0 0 30px rgba(255, 255, 255, 0.08);
+    0 30px 80px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(255, 190, 0, 0.10),
+    inset 0 0 25px rgba(255, 255, 255, 0.04);
 
-  transform-style: preserve-3d;
-  animation: float 6s ease-in-out infinite;
+  animation: cardAppear 1.2s ease-out both;
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotateX(0deg);
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.96);
   }
-  50% {
-    transform: translateY(-12px) rotateX(2deg);
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-/* ✨ TITLE */
+/* =====================================
+   ANIMATED LOGO
+===================================== */
+
+.logo-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+/* background: transparent; */
+  margin: 0 auto 15px;
+
+  width: 100%;
+}
+
+.brand-logo {
+  display: block;
+
+  width: clamp(200px, 35vw, 340px);
+  max-width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  mix-blend-mode: screen;
+
+  filter:
+    drop-shadow(0 0 12px rgba(255, 190, 50, 0.35))
+    drop-shadow(0 0 25px rgba(255, 190, 50, 0.15));
+
+    background: transparent;
+}
+
+/* =====================================
+   MAIN TITLE
+===================================== */
+
 .title {
-  font-size: 3.2rem;
-  color: #fff;
-  margin-bottom: 15px;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+
+  font-weight: 800;
+
+  color: #ffffff;
+
+  line-height: 1.25;
+
+  margin: 10px 0 18px;
+
   letter-spacing: 1px;
 }
 
 .title span {
-  color: #ffcc00;
-  text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+  display: block;
+
+  background: linear-gradient(
+    90deg,
+    #fff0a6,
+    #ffcc00,
+    #ff9900,
+    #fff0a6
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  animation: goldShine 4s linear infinite;
 }
 
-/* 📝 SUBTITLE */
+@keyframes goldShine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* =====================================
+   DESCRIPTION
+===================================== */
+
 .subtitle {
-  color: #eaeaea;
-  font-size: 1.15rem;
-  margin-bottom: 35px;
-  line-height: 1.6;
+  color: #e3e3e3;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+
+  max-width: 690px;
+
+  margin: 0 auto 25px;
 }
 
-/* 🔘 BUTTONS */
+/* =====================================
+   FEATURES
+===================================== */
+
+.hero-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-bottom: 30px;
+}
+
+.hero-features span {
+  color: #ffdf75;
+
+  font-size: 13px;
+
+  padding: 9px 14px;
+
+  border: 1px solid rgba(255, 204, 0, 0.25);
+
+  border-radius: 30px;
+
+  background: rgba(255, 204, 0, 0.07);
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
 .hero-buttons {
   display: flex;
-  gap: 18px;
+
   justify-content: center;
+
+  gap: 18px;
+
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 14px 30px;
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 15px 30px;
+
   border-radius: 40px;
+
+  font-size: 15px;
+
   font-weight: 700;
+
   text-decoration: none;
+
   transition: all 0.35s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-/* 🌟 PRIMARY */
+/* Gold button */
+
 .btn-primary {
-  background: linear-gradient(135deg, #ffcc00, #ff9900);
   color: #000;
-  box-shadow: 0 12px 30px rgba(255, 204, 0, 0.45);
+
+  background: linear-gradient(
+    135deg,
+    #ffe680,
+    #ffcc00,
+    #ff9900
+  );
+
+  box-shadow:
+    0 10px 30px rgba(255, 204, 0, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 18px 40px rgba(255, 204, 0, 0.7);
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 15px 40px rgba(255, 204, 0, 0.55);
 }
 
-/* 🌙 SECONDARY */
+/* Transparent button */
+
 .btn-secondary {
   color: #fff;
-  border: 2px solid rgba(255,255,255,0.7);
-  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .btn-secondary:hover {
-  background: rgba(255,255,255,0.15);
-  transform: translateY(-4px);
+  background: rgba(255, 204, 0, 0.15);
+
+  border-color: #ffcc00;
+
+  color: #ffdf75;
+
+  transform: translateY(-5px);
 }
 
-/* 💬 WHATSAPP */
+/* =====================================
+   LOCATION
+===================================== */
+
+.hero-location {
+  margin-top: 27px;
+
+  color: #d0d0d0;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+}
+
+/* =====================================
+   SCROLL INDICATOR
+===================================== */
+
+.scroll-indicator {
+  position: absolute;
+
+  bottom: 18px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  z-index: 3;
+}
+
+.scroll-indicator p {
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  margin-top: 9px;
+}
+
+.scroll-indicator span {
+  display: block;
+
+  width: 22px;
+  height: 35px;
+
+  margin: auto;
+
+  border: 2px solid #ffcc00;
+
+  border-radius: 20px;
+
+  position: relative;
+}
+
+.scroll-indicator span::before {
+  content: '';
+
+  position: absolute;
+
+  top: 6px;
+  left: 50%;
+
+  width: 4px;
+  height: 7px;
+
+  background: #ffcc00;
+
+  border-radius: 5px;
+
+  transform: translateX(-50%);
+
+  animation: scrollMove 1.4s infinite;
+}
+
+@keyframes scrollMove {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+}
+
+/* =====================================
+   WHATSAPP FLOATING BUTTON
+===================================== */
+
 .whatsapp-float {
   position: fixed;
-  bottom: 22px;
-  right: 22px;
+
+  bottom: 25px;
+  right: 25px;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
   background: #25D366;
-  color: #fff;
-  font-size: 28px;
-  padding: 16px;
+
+  color: white;
+
+  font-size: 30px;
+
   border-radius: 50%;
+
   text-decoration: none;
+
   z-index: 999;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
-  transition: transform 0.3s ease;
+
+  box-shadow:
+    0 8px 25px rgba(37, 211, 102, 0.45);
+
+  transition: all 0.3s ease;
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.15);
+  transform: scale(1.12);
+
+  box-shadow:
+    0 10px 35px rgba(37, 211, 102, 0.65);
 }
 
-/* 📱 MOBILE */
+/* =====================================
+   TABLET
+===================================== */
+
 @media (max-width: 768px) {
+
+  .hero-3d {
+    min-height: 100svh;
+    padding: 60px 15px 90px;
+  }
+
   .hero-card {
-    padding: 40px 25px;
+    padding: 28px 22px 30px;
+    border-radius: 22px;
+  }
+
+  .brand-logo {
+    width: clamp(190px, 55vw, 280px);
+  }
+
+  .subtitle {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .hero-features {
+    gap: 8px;
+  }
+
+  .hero-features span {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
+
+  .btn {
+    padding: 13px 22px;
+    font-size: 14px;
+  }
+
+  .scroll-indicator {
+    bottom: 10px;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+
+  .hero-3d {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero-card {
+    padding: 25px 17px;
+  }
+
+  .brand-logo {
+    width: 220px;
   }
 
   .title {
-    font-size: 2.4rem;
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero-location {
+    font-size: 12px;
+  }
+
+  .whatsapp-float {
+    width: 53px;
+    height: 53px;
+
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-card,
+  .brand-logo,
+  .title span,
+  .scroll-indicator span::before,
+  .hero-bg {
+    animation: none !important;
+  }
+
+  .btn,
+  .whatsapp-float {
+    transition: none;
   }
 }

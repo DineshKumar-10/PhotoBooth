@@ -1,34 +1,89 @@
+
 <section class="hero-3d">
+
+  <!-- Background slideshow -->
   <div class="hero-bg"></div>
+
+  <!-- Dark luxury overlay -->
   <div class="hero-overlay"></div>
 
+  <!-- Main hero content -->
   <div class="hero-card">
+
+    <!-- Animated brand logo -->
+    <div class="logo-animation">
+      <video
+        class="brand-logo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        aria-label="Magizh Magic Touch animated logo">
+
+        <source
+          src="assets/gallery/magizh-magic-touch-transparent.webm"
+          type="video/mp4">
+
+      </video>
+    </div>
+
+    <!-- Main heading -->
     <h1 class="title">
-      Magizh <span>Magic Touch</span>
+      Capture Moments.
+      <span>Create Magic.</span>
     </h1>
 
+    <!-- Description -->
     <p class="subtitle">
-      <!-- Premium Photo Booth Experience for Weddings, Events & Celebrations -->
-       Magizh Magic Touch is an event entertainment and photo booth rental service specializing in elevating the guest experience at various social and corporate gatherings. The business introduces interactive, modern tech elements to traditional events, ensuring guests leave with memorable keepsakes.
+      Make your celebrations unforgettable with Magizh Magic Touch.
+      Experience premium interactive photo booths, instant photo prints
+      and exciting entertainment for weddings, birthdays and corporate events.
     </p>
 
+    <!-- Service highlights -->
+    <div class="hero-features">
+      <span>✨ Premium Experiences</span>
+      <span>📸 Instant Memories</span>
+      <span>🎉 Every Celebration</span>
+    </div>
+
+    <!-- Action buttons -->
     <div class="hero-buttons">
+
       <a routerLink="/contact" class="btn btn-primary">
-        📅 Check Availability
+        <span>📅</span> Check Availability
       </a>
 
       <a href="tel:+919345544255" class="btn btn-secondary">
-        📞 Call Now
+        <span>📞</span> Call Now
       </a>
+
     </div>
+
+    <!-- Location -->
+    <div class="hero-location">
+      <span>📍</span> Kanchipuram, Tamil Nadu
+    </div>
+
   </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <span></span>
+    <p>SCROLL TO EXPLORE</p>
+  </div>
+
 </section>
 
-<!-- <app-services></app-services> -->
-
+<!-- Floating WhatsApp button -->
 <a
   href="https://wa.me/919345544255"
   target="_blank"
-  class="whatsapp-float">
+  rel="noopener noreferrer"
+  class="whatsapp-float"
+  aria-label="Chat with us on WhatsApp">
+
   💬
+
 </a>

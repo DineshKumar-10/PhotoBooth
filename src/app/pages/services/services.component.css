@@ -1,4 +1,4 @@
-.container {
+/* .container {
   max-width: 1100px;
   margin: auto;
 }
@@ -39,4 +39,142 @@ h3 {
 }
 @media(max-width:768px){
   .services-grid { grid-template-columns: 1fr; }
+} */
+
+
+
+
+
+
+
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 55px;
+  color: #777;
+}
+
+/* Services layout */
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Zig-zag second row */
+
+.service-row.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image */
+
+.service-image {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.service-image img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.service-image:hover img {
+  transform: scale(1.06);
+}
+
+/* Content */
+
+.service-content {
+  flex: 1;
+  padding: 25px;
+}
+
+.service-content h3 {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffcc00, #ff9900);
+  color: #000;
+  box-shadow: 0 8px 20px rgba(255, 204, 0, 0.3);
+  font-size: 23px;
+  margin-bottom: 18px;
+}
+
+.service-content p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: inherit;
+  text-align: justify;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 768px) {
+
+  .container {
+    padding: 25px 15px;
+  }
+
+  .container h1 {
+    font-size: 29px;
+  }
+
+  .services-list {
+    gap: 40px;
+  }
+
+  .service-row,
+  .service-row.reverse {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .service-image {
+    width: 100%;
+  }
+
+  .service-image img {
+    height: 250px;
+  }
+
+  .service-content {
+    padding: 10px 5px;
+  }
+
+  .service-content h3 {
+    font-size: 20px;
+  }
+
+  .service-content p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
 }
