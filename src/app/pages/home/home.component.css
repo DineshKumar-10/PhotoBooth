@@ -121,11 +121,15 @@
    ANIMATED LOGO
 ===================================== */
 
-.logo-animation {
+/* .logo-animation {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+
+
 /* background: transparent; */
+
+/* 
   margin: 0 auto 15px;
 
   width: 100%;
@@ -147,7 +151,29 @@
     drop-shadow(0 0 25px rgba(255, 190, 50, 0.15));
 
     background: transparent;
+} */
+
+
+
+
+.logo-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto 20px;
+  overflow: hidden;
 }
+
+.brand-logo {
+  display: block;
+  width: clamp(200px, 35vw, 340px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
 
 /* =====================================
    MAIN TITLE
